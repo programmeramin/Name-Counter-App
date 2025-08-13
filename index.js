@@ -1,6 +1,6 @@
 let nameMap = new Map();
 let currentPage = 1;
-const rowsPerPage = 10;
+const rowsPerPage = 5;
 
 window.onload = () => {
   let savedData = localStorage.getItem("nameMap");
