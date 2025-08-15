@@ -12,9 +12,16 @@
 
   <!-- Form -->
   <div class="input-group mb-3">
-    <input type="text" id="nameInput" class="form-control" placeholder="Enter name">
-    <button class="btn btn-primary" onclick="addName()">Add</button>
+    <input type="text" id="nameInput" class="form-control" placeholder="Enter name">  
   </div>
+  <button class="btn btn-primary mb-2" onclick="addName()">Add</button>
+
+  <!-- Search -->
+            <div class="row g-2 justify-content-center mt-1 mb-3">
+                <div class="col-md-4">
+                    <input type="text" id="searchInput" class="form-control" placeholder="Search name..." onkeyup="renderTable()">
+                </div>
+            </div>
 
   <!-- Controls -->
   <div class="mb-3">
@@ -42,6 +49,5 @@
 </div>
 
 <script src="./index.js"></script>
-
 </body>
 </html>
