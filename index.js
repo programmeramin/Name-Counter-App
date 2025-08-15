@@ -12,9 +12,9 @@ window.onload = () => {
 function addName() {
   let name = document.getElementById("nameInput").value.trim();
   if (!name){
-    return alert("All fields are required")
+    return alert("All fields are required");
   }
-  if (nameMap.has(name)) {
+  if(nameMap.has(name)){
     nameMap.set(name, nameMap.get(name) + 1);
   } else {
     nameMap.set(name, 1);
@@ -60,18 +60,22 @@ function renderTable() {
   let tableBody = document.getElementById("tableBody");
   tableBody.innerHTML = "";
 
+  let searchText = document.getElementById("searchInput").value.toLowerCase();
+
   let entries = [...nameMap.entries()];
   let start = (currentPage - 1) * rowsPerPage;
   let end = start + rowsPerPage;
   let paginatedData = entries.slice(start, end);
 
   paginatedData.forEach(([name, count]) => {
-    let row = `<tr>
+    if(name.toLowerCase().includes(searchText)){
+       let row = `<tr>
       <td>${name}</td>
       <td>${count}</td>
       <td><button class="btn btn-sm btn-danger" onclick="deleteName('${name}')">Delete</button></td>
     </tr>`;
     tableBody.innerHTML += row;
+    }
   });
 
   renderPagination(entries.length);
