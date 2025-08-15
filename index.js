@@ -11,7 +11,9 @@ window.onload = () => {
 // Add Name
 function addName() {
   let name = document.getElementById("nameInput").value.trim();
-  if (!name) return;
+  if (!name){
+    return alert("All fields are required")
+  }
   if (nameMap.has(name)) {
     nameMap.set(name, nameMap.get(name) + 1);
   } else {
